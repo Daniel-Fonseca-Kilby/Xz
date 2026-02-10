@@ -1,11 +1,39 @@
 /* Estilos generales */
 body {
-    background: #050505;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a0d1a 25%, #2d1b2d 50%, #3d1f3d 75%, #2d1b2d 100%);
+    background-attachment: fixed;
     width: 100%;
     height: 100vh;
     overflow: hidden;
     margin: 0;
     perspective: 1000px;
+    position: relative;
+}
+
+/* Efecto de brillo romántico de fondo */
+body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 50%, rgba(255, 105, 180, 0.15) 0%, rgba(220, 20, 60, 0.1) 20%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(255, 20, 147, 0.1) 0%, rgba(199, 21, 133, 0.05) 30%, transparent 60%);
+    animation: ambientGlow 8s ease-in-out infinite;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes ambientGlow {
+    0%, 100% {
+        opacity: 0.6;
+        transform: scale(1) translateY(0);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05) translateY(-20px);
+    }
 }
 
 /* Estilos para el título */
